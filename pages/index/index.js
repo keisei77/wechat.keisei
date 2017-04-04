@@ -20,7 +20,7 @@ const chooseImage = (vm) => {
     count: 1,
     success: function (res) {
       var filePath = res.tempFilePaths[0];
-      // 交给七牛上传
+      // 交给七牛上传 12
       qiniuUploader.upload(filePath, (res) => {
         vm.setData({
           'imageObject': res
