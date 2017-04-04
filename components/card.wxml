@@ -1,2 +1,3 @@
 <template name="card">
+  <view class="card"></view>
 </template>

@@ -1,1 +1,30 @@
-<view> {{message}} </view>
+<import src="../../components/card" />
+<template is="card"></template>
+<swiper class="home-swiper"
+        indicator-dots="{{indicatorDots}}"
+        indicator-color="{{indicatorColor}}"
+        indicator-active-color="{{indicatorActiveColor}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}"
+        circular="{{circular}}">
+  <block wx:for="{{imgUrls}}" wx:key>
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="home-warpper">
+  <block>
+    <view>
+      <text>{{message}}</text>
+      <button size="{{defaultSize}}"
+              loading="{{loading}}"
+              bindtap="onChooseImage"
+              hover-class="custom-button-hover">Share</button>
+    </view>
+    <view class="image-container">
+      <image class="image" src="{{imageObject.imageURL}}" mode="aspectFit"></image>
+    </view>
+  </block>
+</view>

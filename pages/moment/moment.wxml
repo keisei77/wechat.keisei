@@ -1,0 +1,4 @@
+<!-- background: linear-gradient(135deg, rgba(73,221,216,1) 0%,rgba(25,226,115,1) 100%); -->
+<import src="../../components/card" />
+<template is="card"></template>
+<view>{{moment}}</view>
