@@ -25,7 +25,7 @@ const chooseImage = (vm) => {
         vm.setData({
           'imageObject': res
         });
-        TODO: 提交到baochen服务器 test
+        TODO: 提交到baochen服务器
       }, (error) => {
         console.error('error: ' + JSON.stringify(error));
       });
