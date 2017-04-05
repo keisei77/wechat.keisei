@@ -1,6 +1,6 @@
 const env = require('../../utils/env');
 const app = getApp()
-
+const sliderWidth = 56.25; // 需要设置slider的宽度，用于计算中间位置
 const qiniuUploader = require("../../utils/qiniuUploader");
 // 初始化七牛相关参数
 const initQiniu = () => {
@@ -25,7 +25,7 @@ const chooseImage = (vm) => {
         vm.setData({
           'imageObject': res
         });
-        TODO: 提交到baochen服务器 123
+        TODO: 提交到baochen服务器
       }, (error) => {
         console.error('error: ' + JSON.stringify(error));
       });
@@ -37,21 +37,25 @@ Page({
   data: {
     message: 'Hello KeiSei!',
     userInfo: {},
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
-    indicatorColor: '#ffffff',
-    indicatorActiveColor: '#ffae27',
-    autoplay: true,
-    interval: 3000,
-    duration: 1000,
-    circular: true,
-    defaultSize: 'mini',
     loading: false,
-    imageObject: {}
+    imageObject: {},
+    tabs: [
+      {
+        default: "../../assets/images/hot.png",
+        selected: "../../assets/images/hot_fill.png"
+      }, 
+      {
+        default: "../../assets/images/discover.png",
+        selected: "../../assets/images/discover_fill.png"
+      }, 
+      {
+        default: "../../assets/images/like.png",
+        selected: "../../assets/images/like_fill.png"
+      }
+    ],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
   onLoad: function () {
     var that = this
@@ -62,6 +66,21 @@ Page({
         userInfo:userInfo
       })
     })
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res)
+        that.setData({
+            sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+            sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+  },
+  tabClick: function (e) {
+      this.setData({
+          sliderOffset: e.currentTarget.offsetLeft,
+          activeIndex: e.currentTarget.id
+      });
   },
   onReady: function () {
     wx.request({
