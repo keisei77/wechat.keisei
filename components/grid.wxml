@@ -1,5 +1,22 @@
 <template name="grid">
-  <view>
-    
+  <view class="moment">
+    <view class="header">
+      <view class="avatar">
+        <image src="{{item.user.avatar}}" mode="aspectFit"></image>
+      </view>
+      <view class="user-info">
+        <view class="user-name">{{item.user.username}}</view>
+        <view class="user-status">{{item.user.status}}</view>
+      </view>
+    </view>
+    <view class="body">
+      <view class="moment-content">
+        <image src="{{item.imgSrc}}" mode="aspectFit" />
+      </view>
+      <view class="moment-description">
+        {{item.description}}
+      </view>
+    </view>
+    <view class="footer"></view>
   </view>
 </template>

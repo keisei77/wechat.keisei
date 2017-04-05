@@ -38,6 +38,7 @@ Page({
     message: 'Hello KeiSei!',
     userInfo: {},
     loading: false,
+    moments: [],
     imageObject: {},
     tabs: [
       {
@@ -83,8 +84,15 @@ Page({
       });
   },
   onReady: function () {
+    var that = this;
     wx.request({
-      url: `${env.apiDomain}/api/moments`
+      url: `${env.apiDomain}/api/moments`,
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          moments: res.data
+        })
+      }
     })
   },
   onShareAppMessage: function () {
