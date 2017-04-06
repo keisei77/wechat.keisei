@@ -10,11 +10,11 @@
             <image class="navigator-icon" src="{{activeIndex == index ? item.selected : item.default}}"></image>
           </view>
         </block>
-        <view class="navigator-bar-slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        <view class="navigator-bar-slider" style="transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="content-panel">
         <view hidden="{{activeIndex != 0}}">
-          <view wx:for="{{moments}}" wx:key="*this">
+          <view wx:for="{{moments}}" wx:key>
             <template is="grid" data="{{item}}"></template>
           </view>
         </view>

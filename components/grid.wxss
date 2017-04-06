@@ -38,6 +38,8 @@
   color: #333333;
 }
 .body .moment-content image {
+  width: auto;
+  display: block;
 }
 .body .moment-description {
 }

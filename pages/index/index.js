@@ -1,6 +1,6 @@
 const env = require('../../utils/env');
 const app = getApp()
-const sliderWidth = 56.25; // 需要设置slider的宽度，用于计算中间位置
+// const sliderWidth = 56.25; // 需要设置slider的宽度，用于计算中间位置
 const qiniuUploader = require("../../utils/qiniuUploader");
 // 初始化七牛相关参数
 const initQiniu = () => {
@@ -71,7 +71,6 @@ Page({
       success: function(res) {
         console.log(res)
         that.setData({
-            sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
             sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
       }
