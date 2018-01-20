@@ -1,0 +1,45 @@
+.moment {
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+}
+.header {
+}
+.header .avatar {
+  display: inline-block;
+}
+.header .avatar image {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  border-radius: 40px;
+  vertical-align: middle;
+}
+.header .user-info {
+  padding-left: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.header .user-info .user-name {
+  font-size: 12px;
+  color: #000000;
+}
+.header .user-info .user-status {
+  font-size: 12px;
+  color: #333333;
+}
+.body .moment-content image {
+  width: auto;
+  display: block;
+}
+.body .moment-description {
+}

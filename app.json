@@ -6,23 +6,6 @@
   "window": {
     "navigationBarTitleText": "Colorful Life"
   },
-  "tabBar": {
-    "color": "#333333",
-    "selectedColor": "#ffae27",
-    "borderStyle": "white",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "assets/images/home.png",
-      "selectedIconPath": "assets/images/home_fill.png"
-    },
-    {
-      "pagePath": "pages/moment/moment",
-      "text": "时刻",
-      "iconPath": "assets/images/moment.png",
-      "selectedIconPath": "assets/images/moment_fill.png"
-    }]
-  },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000

@@ -1,30 +1,33 @@
 <import src="../../components/card" />
+<import src="../../components/grid" />
 <template is="card"></template>
-<swiper class="home-swiper"
-        indicator-dots="{{indicatorDots}}"
-        indicator-color="{{indicatorColor}}"
-        indicator-active-color="{{indicatorActiveColor}}"
-        autoplay="{{autoplay}}"
-        interval="{{interval}}"
-        duration="{{duration}}"
-        circular="{{circular}}">
-  <block wx:for="{{imgUrls}}" wx:key>
-    <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
-    </swiper-item>
-  </block>
-</swiper>
 <view class="home-warpper">
   <block>
-    <view>
-      <text>{{message}}</text>
-      <button size="{{defaultSize}}"
-              loading="{{loading}}"
-              bindtap="onChooseImage"
-              hover-class="custom-button-hover">Share</button>
+    <view class="home-content">
+      <view class="navigator-bar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="navigator-bar-item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <image class="navigator-icon" src="{{activeIndex == index ? item.selected : item.default}}"></image>
+          </view>
+        </block>
+        <view class="navigator-bar-slider" style="transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="content-panel">
+        <view hidden="{{activeIndex != 0}}">
+          <view wx:for="{{moments}}" wx:key>
+            <template is="grid" data="{{item}}"></template>
+          </view>
+        </view>
+        <view hidden="{{activeIndex != 1}}">选项二的内容</view>
+        <view hidden="{{activeIndex != 2}}">选项三的内容</view>
+      </view>
     </view>
     <view class="image-container">
       <image class="image" src="{{imageObject.imageURL}}" mode="aspectFit"></image>
     </view>
+    <button class="upload-button"
+        loading="{{loading}}"
+        bindtap="onChooseImage"
+        hover-class="custom-button-hover">+</button>
   </block>
 </view>
